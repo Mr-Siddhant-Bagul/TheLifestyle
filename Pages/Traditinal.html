@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traditional Wear</title>
+    <link rel="StyleSheet" href="Traditional.css" >
+</head>
+
+<body id="dark-mode">
+    <div class="container" >
+        <div class="title-div">
+            <h1 class="title-heading">The Traditional Wear</h1>
+        </div>
+        <button class="light-btn" onclick="Light()">Light</button>
+        <button class="dark-btn" onclick="Dark()">Dark</button>
+        <div class="select-category">
+           
+
+            </select>
+            <div class="btn-content">
+                <img src="https://www.kalaniketan.com/media/catalog/product/cache/a21c1d38413de64f1250fbeb2309e062/R/a/RangbaazV11_1106_2.jpg" alt="image" class="image"
+                    id="GeneratedRandomImage" />
+                <button class="random-btn" onclick="generateImage()">
+                    Generate Image
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="Copyfloater">
+        <!-- <div type="text" class="ImageURl" id="URL">Copy this URL</div> -->
+        <input type="text" id="image-url" placeholder="Copy This URL">
+        <button class="CopyBtn" onclick="copyToClipboard()">
+            Copy URL
+        </button>
+    </div>
+
+    <div class="Homediv">
+        <a href="../index.html">
+            <img src="https://cdn-icons-png.flaticon.com/512/8862/8862711.png" alt="Home" class="HomeBtn">
+        </a>
+    </div>
+
+    <script>
+        function Light() {
+            const element = document.getElementById("dark-mode");
+            element.className = "body";
+        }
+
+        function Dark() {
+            const element = document.getElementById("dark-mode");
+            element.className = "container-body";
+        }
+        
+            var images = [  "https://i.pinimg.com/736x/8f/cb/04/8fcb04ca13e6351afd701147ee459ee7.jpg",
+            "https://www.indiansilkhouseagencies.com/product_img/large/11AO0632Y3-3.jpg",
+            "https://i.pinimg.com/736x/94/db/9f/94db9f8236ebdab17c145ce56047c623.jpg",
+            "https://images.meesho.com/images/products/146701905/okvmv_512.jpg",
+            "https://stylesatlife.com/wp-content/uploads/2017/12/Side-open-kurta.jpg",
+            "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81nnCkV3n6L._UL1500_.jpg",
+            "https://i.pinimg.com/originals/b2/0e/f1/b20ef142c095a2e46dcd46978c9ca6b2.jpg",
+            "https://www.shebazaar.com/media/catalog/product/cache/a21c1d38413de64f1250fbeb2309e062/s/b/sb47_rt4677_156646.jpg",
+            "https://i.etsystatic.com/22604918/r/il/4fa582/3681662511/il_570xN.3681662511_q8g2.jpg",
+            "https://img0.junaroad.com/uiproducts/18227900/zoom_0-1642690357.jpg",
+            "https://images.meesho.com/images/products/19210423/5fcab_512.webp",
+            "https://koranm.com/pub/media/catalog/product/n/m/nm-60830-white.jpg?auto=compress&cs=tinysrgb&h=50",
+
+
+            ];
+            function generateImage() {
+              var randomIndex = Math.floor(Math.random() * images.length);
+              var imageUrl = " " + images[randomIndex];
+              var imageElement = document.getElementById("GeneratedRandomImage");
+              imageElement.src = imageUrl;
+              document.getElementById("image-url").value = imageUrl
+            }
+            
+            function copyToClipboard() {
+              var copyText = document.getElementById("image-url");
+              copyText.select();
+              copyText.setSelectionRange(0, 99999);
+              document.execCommand("copy");
+              alert("Copied to clipboard: " + copyText.value);
+            }
+        
+    </script>
+</body>
+
+</html>
